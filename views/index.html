@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FBI</title>
+    <link rel="stylesheet" href="../public/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="/javascripts/avalon.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h2>登录</h2>
+        </div>
+        <div class="col-lg-12">
+            <form action="/loginChack" method="post">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" name="pwd" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                </div>
+                <div class="checkbox">
+                    <label><input type="checkbox"> 记住密码</label>
+                </div>
+                <button type="submit" class="btn btn-primary">登 录</button>
+                <a type="button" href="/reg" class="btn btn-link">去注册</a>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/javascripts/bootstrap.min.js"></script>
+</body>
+</html>

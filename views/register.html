@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FBI</title>
+    <link rel="stylesheet" href="../public/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="/javascripts/avalon.js"></script>
+</head>
+<body>
+<div class="container" ms-controller="container">
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+            <h2 class="text-center">注册</h2>
+        </div>
+        <div class="col-lg-3"></div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+            <form action="/regChack" method="post">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" name="email" class="form-control" id="exampleInputEmail1" ms-duplex="@email" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" name="pwd" class="form-control" id="exampleInputPassword1" ms-duplex="@pwd" placeholder=" Password">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Confirm Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword2" ms-duplex="@pwd" placeholder="Confirm Password">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">邮箱验证码</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="exampleInputPassword3" placeholder="Code">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button" ms-click="@sendClick">发送</button>
+                        </span>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary" >注 册</button>
+                <a type="button" href="/" class="btn btn-link">去登录</a>
+            </form>
+        </div>
+        <div class="col-lg-3"></div>
+    </div>
+</div>
+<script type="text/javascript">
+  var vm = avalon.define({
+    $id: "container",
+    email: '',
+    pwd: '',
+    regClick: function () {
+      var data = {
+        email: vm.email,
+        pwd: vm.pwd
+      }
+      $.ajax({
+        url: "/regChack",
+        type: "post",
+        dataType: "json",
+        data: data,
+        success: function (data) {
+          console.log(data);
+        }
+      });
+    },
+    sendClick: function () {
+      var data = {
+        email: vm.email
+      }
+      $.ajax({
+        url: "/regCode",
+        type: "post",
+        dataType: "json",
+        data: data,
+        success: function (data) {
+          console.log(data);
+        }
+      });
+    }
+  })
+</script>
+<script type="text/javascript" src="/javascripts/bootstrap.min.js"></script>
+</body>
+</html>
