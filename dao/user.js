@@ -1,5 +1,5 @@
 var dbo = require('../bin/mongoose').mongoose;
-var u = require('../bin/Util');
+var u = require('../bin/util');
 
 //用户表
 var User = dbo.model('user', dbo.Schema({
